@@ -8,4 +8,7 @@
       <span>{{ getAnswerLetter(j) }}.</span> {{ answer?.answerLabel }}
     </button>
   </li>
+  <span *ngIf="getAnswerTime(questionId)">
+    Répondu en {{ getAnswerTime(questionId) | timeDifference:quizService.quizStartTime }}
+  </span>
 </ul>

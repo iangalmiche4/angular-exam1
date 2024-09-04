@@ -6,10 +6,11 @@ import { HttpClient } from "@angular/common/http";
 })
 export class QuizService {
   quizContent: any[] = [];
-  playerAnswers: {questionId: number; answer: string}[] = [];
+  playerAnswers: {questionId: number; answer: string; answerTime: Date}[] = [];
   score = 0;
   isQuizFinished = false;
   playerName: string = '';
+  quizStartTime: Date = new Date();
 
   constructor(private http: HttpClient) { }
 
@@ -30,12 +31,14 @@ export class QuizService {
   }
 
   addAnswer(answer: string, questionId: number) {
+    const answerTime = new Date(); // Capture du temps de réponse
     const isAnswered = this.playerAnswers.find((a) => a.questionId === questionId);
     if (isAnswered) {
       isAnswered.answer = answer;
+      isAnswered.answerTime = answerTime; // Assurez-vous que `answerTime` est bien mis à jour
       return;
     }
-    this.playerAnswers.push({questionId, answer});
+    this.playerAnswers.push({questionId, answer, answerTime}); // Ajoutez `answerTime` ici
   }
 
   getQuizContent() {

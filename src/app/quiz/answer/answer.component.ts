@@ -11,7 +11,7 @@ export class AnswerComponent {
   @Input() questionId: number = 0;
   isQuizFinished = this.quizService.isQuizFinished;
 
-  constructor(private quizService: QuizService) { }
+  constructor(public quizService: QuizService) { }
 
   getAnswerLetter(j: number) {
     return String.fromCharCode(65 + j);
@@ -25,5 +25,9 @@ export class AnswerComponent {
     const isAnswered = this.quizService.playerAnswers.find((a) => a.questionId === id);
     if (!isAnswered) return false;
     return isAnswered.answer === answer;
+  }
+
+  getAnswerTime(questionId: number): Date | undefined {
+    return this.quizService.playerAnswers.find(a => a.questionId === questionId)?.answerTime;
   }
 }

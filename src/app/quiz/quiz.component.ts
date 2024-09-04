@@ -10,7 +10,8 @@ import { QuizService } from "../shared/services/quiz.service";
 export class QuizComponent implements OnInit {
   isQuizFinished = this.quizService.isQuizFinished;
   playerName = '';
-
+  quizStartTime: Date = new Date();
+  
   constructor(
     private quizService: QuizService,
     private router: Router,
@@ -21,6 +22,7 @@ export class QuizComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.quizService.playerName = params['playerName'];
       this.playerName = params['playerName'];
+      this.quizService.quizStartTime = this.quizStartTime;
     });
   }
 

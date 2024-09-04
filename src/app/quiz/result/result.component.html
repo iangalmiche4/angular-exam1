@@ -4,6 +4,7 @@
     <h3>{{ playerName }}, ton score est de :</h3>
     <span>{{ score }}/{{ scoreTotal }}</span>
   </section>
+  <p>Date du quiz : {{ quizDate | date:'dd/MM/yyyy' }}</p> 
   <button (click)="goToHome()" class="btn">Rejouer</button>
   <img class="result_gif" [src]="getGifUrl()" alt="">
 </section>

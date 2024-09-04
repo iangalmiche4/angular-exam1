@@ -11,6 +11,7 @@ export class ResultComponent implements OnInit {
   score = 0;
   scoreTotal = this.quizService.quizContent.length;
   playerName = this.quizService.playerName;
+  quizDate: Date = new Date(); 
 
   constructor(private quizService: QuizService, private router: Router) { }
 

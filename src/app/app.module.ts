@@ -13,7 +13,8 @@ import { AnswerComponent } from './quiz/answer/answer.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { TimeDifferencePipe } from './shared/pipes/time-difference.pipe'; // Importer la pipe
+import { TimeDifferencePipe } from './shared/pipes/time-difference.pipe';
+import { AnswerLetterDirective } from './shared/directives/answer-letter.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TimeDifferencePipe } from './shared/pipes/time-difference.pipe'; // Imp
     AnswerComponent,
     LoginComponent,
     RegisterComponent,
-    TimeDifferencePipe
+    TimeDifferencePipe,
+    AnswerLetterDirective
   ],
   imports: [
     BrowserModule,

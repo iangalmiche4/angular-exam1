@@ -13,10 +13,6 @@ export class AnswerComponent {
 
   constructor(public quizService: QuizService) { }
 
-  getAnswerLetter(j: number) {
-    return String.fromCharCode(65 + j);
-  }
-
   addAnswer(answer: string, questionId: number) {
     this.quizService.addAnswer(answer, questionId);
   }

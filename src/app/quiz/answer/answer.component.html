@@ -5,7 +5,7 @@
       (click)="addAnswer(answer?.answerLabel, questionId)"
       [class.answer_container--selected]="isAnswerSelected(answer?.answerLabel, questionId)"
     >
-      <span>{{ getAnswerLetter(j) }}.</span> {{ answer?.answerLabel }}
+      <span [appAnswerLetter]="j">{{ answer?.answerLabel }}</span>
     </button>
   </li>
   <span *ngIf="getAnswerTime(questionId)">
